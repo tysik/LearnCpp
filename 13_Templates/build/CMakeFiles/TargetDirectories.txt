@@ -1,0 +1,3 @@
+/home/tysik/Projekty/LearnCpp/13_Templates/build/CMakeFiles/edit_cache.dir
+/home/tysik/Projekty/LearnCpp/13_Templates/build/CMakeFiles/rebuild_cache.dir
+/home/tysik/Projekty/LearnCpp/13_Templates/build/CMakeFiles/13_Templates.dir

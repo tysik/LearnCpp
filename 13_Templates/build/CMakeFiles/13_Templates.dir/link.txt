@@ -1,0 +1,1 @@
+/usr/bin/g++      CMakeFiles/13_Templates.dir/main.cpp.o  -o 13_Templates -rdynamic 
