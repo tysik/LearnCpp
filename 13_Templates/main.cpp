@@ -4,6 +4,7 @@
 #include "array.hpp"
 #include "static_array.hpp"
 #include "storage.hpp"
+#include "storage8.hpp"
 
 using namespace std;
 
@@ -113,13 +114,37 @@ int main() {
   char* some_string = new char[40];
 
   cout << "Enter your name: ";
-  cin >> some_string;
+  //cin >> some_string;
+  some_string = "Mateusz";
 
   Storage<char*> value(some_string);
 
-  delete[] some_string;
+  //delete[] some_string;
 
   value.print();
+
+  //
+  // 13.6
+  //
+  cout << endl << "Part: 13.6" << endl;
+
+  Storage8<int> intStorage;
+
+  for (int idx = 0; idx < 8; ++idx)
+    intStorage.set(idx, idx);
+
+  for (int idx = 0; idx < 8; ++idx)
+    cout << intStorage.get(idx) << endl;
+
+  Storage8<bool> boolStorage;
+
+  for (int idx = 0; idx < 8; ++idx)
+    boolStorage.set(idx, idx & 3);
+
+  for (int idx = 0; idx < 8; ++idx)
+    cout << (boolStorage.get(idx) ? "true" : "false") << endl;
+
+  cout << "int storage: " << sizeof(intStorage) << ", bool storage: " << sizeof(boolStorage) << endl;
 
   return 0;
 }
