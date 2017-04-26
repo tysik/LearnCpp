@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include "cents.hpp"
+#include "array.hpp"
+
 using namespace std;
 
 // 13.1
@@ -7,33 +10,6 @@ template <typename T>
 const T& t_max(const T& x, const T& y) {
   return (x > y) ? x : y;
 }
-
-// 13.2
-class Cents
-{
-private:
-  int cents_;
-
-public:
-  Cents(int cents) : cents_(cents) {}
-
-  friend bool operator>(const Cents& c1, const Cents& c2) {
-    return (c1.cents_ > c2.cents_);
-  }
-
-  friend ostream& operator<<(ostream& out, const Cents& cents) {
-    out << cents.cents_ << " cents ";
-    return out;
-  }
-
-  void operator+=(Cents cents) {
-    cents_ += cents.cents_;
-  }
-
-  void operator/=(int value) {
-    cents_ /= value;
-  }
-};
 
 template <class T>
 T t_average(T* array, int length) {
@@ -51,6 +27,8 @@ int main() {
   //
   // 13.1
   //
+  cout << endl << "Part: 13.1" << endl;
+
   int i = t_max(3, 7);
   cout << i << endl;
 
@@ -63,6 +41,8 @@ int main() {
   //
   // 13.2
   //
+  cout << endl << "Part: 13.2" << endl;
+
   Cents nickle(5);
   Cents dime(10);
 
@@ -76,6 +56,23 @@ int main() {
 
   Cents array3[] = { Cents(5), Cents(10), Cents(15), Cents(14) };
   cout << t_average(array3, 4) << endl;
+
+  //
+  // 13.3.
+  //
+  cout << endl << "Part: 13.3" << endl;
+
+  Array<int> intArray(12);
+  Array<double> doubleArray(12);
+
+  for (int idx = 0; idx < intArray.getLength(); ++idx) {
+    intArray[idx] = idx;
+    doubleArray[idx] = idx + 0.5;
+  }
+
+  for (int idx = intArray.getLength() - 1; idx >= 0; --idx) {
+    cout << intArray[idx] << "\t" << doubleArray[idx] << endl;
+  }
 
   return 0;
 }
