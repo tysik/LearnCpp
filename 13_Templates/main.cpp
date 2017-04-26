@@ -2,6 +2,7 @@
 
 #include "cents.hpp"
 #include "array.hpp"
+#include "static_array.hpp"
 
 using namespace std;
 
@@ -73,6 +74,29 @@ int main() {
   for (int idx = intArray.getLength() - 1; idx >= 0; --idx) {
     cout << intArray[idx] << "\t" << doubleArray[idx] << endl;
   }
+
+  //
+  // 13.4
+  //
+  cout << endl << "Part: 13.4" << endl;
+
+  StaticArray<int, 12> intStaticArray;
+
+  for (int idx = 0; idx < 12; ++idx)
+    intStaticArray[idx] = idx;
+
+  for (int idx = 11; idx >= 0; --idx)
+    cout << intStaticArray[idx] << " ";
+  cout << endl;
+
+  StaticArray<double, 4> doubleStaticArray;
+
+  for (int idx = 0; idx < 4; ++idx)
+    doubleStaticArray[idx] = 4.4 + 0.1 * idx;
+
+  for (int idx = 0; idx < 4; ++idx)
+    cout << doubleStaticArray[idx] << " ";
+  cout << endl;
 
   return 0;
 }

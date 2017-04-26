@@ -3,4 +3,4 @@ project(13_Templates)
 
 add_compile_options(-std=c++11)
 
-add_executable(${PROJECT_NAME} main.cpp cents.hpp array.hpp)
+add_executable(${PROJECT_NAME} main.cpp cents.hpp array.hpp static_array.hpp)
