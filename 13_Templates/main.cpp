@@ -3,6 +3,7 @@
 #include "cents.hpp"
 #include "array.hpp"
 #include "static_array.hpp"
+#include "storage.hpp"
 
 using namespace std;
 
@@ -97,6 +98,28 @@ int main() {
   for (int idx = 0; idx < 4; ++idx)
     cout << doubleStaticArray[idx] << " ";
   cout << endl;
+
+  //
+  // 13.5
+  //
+  cout << endl << "Part: 13.5" << endl;
+
+  Storage<int> intValue(5);
+  Storage<double> doubleValue(6.7);
+
+  intValue.print();
+  doubleValue.print();
+
+  char* some_string = new char[40];
+
+  cout << "Enter your name: ";
+  cin >> some_string;
+
+  Storage<char*> value(some_string);
+
+  delete[] some_string;
+
+  value.print();
 
   return 0;
 }
