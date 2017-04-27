@@ -171,5 +171,38 @@ int main() {
   blue.swap(red);
   cout << "normal: " << blue << " " << red << endl;
 
+  //
+  // Part 17.6
+  //
+  cout << "Part 17.6" << endl;
+
+  string xxx("xxx");
+  cout << xxx << endl;
+
+  xxx += string("yyy");
+  cout << xxx << endl;
+
+  xxx.append(string("zzz"));
+  cout << xxx << endl;
+
+  xxx.append(xxx, 3, 3);
+  cout << xxx << endl;
+
+  xxx += "xxx";
+  cout << xxx << endl;
+
+  xxx.append("yyy");
+  cout << xxx << endl;
+
+  xxx.append("heyHo!", 3);
+  cout << xxx << endl;
+
+  xxx += ' ';
+  cout << xxx << endl;
+
+  xxx.push_back('!');
+  cout << xxx << endl;
+
+
   return 0;
 }
