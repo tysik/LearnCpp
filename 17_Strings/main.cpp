@@ -1,6 +1,8 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -55,6 +57,44 @@ int main() {
     cout << dX << endl;
   if (FromString("ABC", dX))
     cout << dX << endl;
+
+  //
+  // Part 17.3
+  //
+  cout << "Part 17.3" << endl;
+
+  string source2("0123456789");
+  cout << source2.length() << " " << source2.size() << endl;
+
+  string empty, notEmpty("Haha!");
+  cout << empty.empty() << " " << notEmpty.empty() << endl;
+
+  string someString("0123456789abcdefghijk");
+  cout << someString.max_size() << endl;
+  cout << "Length: " << someString.length() << endl;
+  cout << "Capacity: " << someString.capacity() << endl;
+
+  string nextString("01234567");
+  cout << "Length: " << nextString.length() << endl;
+  cout << "Capacity: " << nextString.capacity() << endl;
+
+  nextString.reserve(200);
+  cout << "Length: " << nextString.length() << endl;
+  cout << "Capacity: " << nextString.capacity() << endl;
+
+  nextString.reserve();
+  cout << "Length: " << nextString.length() << endl;
+  cout << "Capacity: " << nextString.capacity() << endl;
+
+  srand(time(0));
+
+  string huhString;
+  huhString.reserve(64);
+
+  for (int idx = 0; idx < 64; ++idx)
+    huhString += 'a' + rand() % 26;
+
+  cout << huhString;
 
   return 0;
 }
