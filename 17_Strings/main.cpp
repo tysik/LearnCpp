@@ -203,6 +203,29 @@ int main() {
   xxx.push_back('!');
   cout << xxx << endl;
 
+  //
+  // Part 17.7
+  //
+  cout << "Part 17.7" << endl;
+
+  string aaa("aaa");
+  cout << aaa << endl;
+
+  aaa.insert(2, string("bbb"));
+  cout << aaa << endl;
+
+  aaa.insert(4, "ccc");
+  cout << aaa << endl;
+
+  const string insert_str("012346557");
+  aaa.insert(2, insert_str, 3, 4);
+  cout << aaa << endl;
+
+  aaa.insert(aaa.length(), "qwert", 2);
+  cout << aaa << endl;
+
+  aaa.insert(2, 4, 'o');
+  cout << aaa << endl;
 
   return 0;
 }
