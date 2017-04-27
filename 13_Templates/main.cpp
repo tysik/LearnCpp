@@ -131,11 +131,11 @@ int main() {
 
   cout << "Enter your name: ";
   //cin >> some_string;
-  some_string = "Mateusz";
+  strcpy(some_string, "Mateusz");
 
   Storage<char*> value(some_string);
 
-  //delete[] some_string;
+  delete[] some_string;
 
   value.print();
 
@@ -179,6 +179,27 @@ int main() {
   strcpy(charArray12.getArray(), "Hello, mom!");
   print(charArray12);
   cout << endl;
+
+  //
+  // 13.8
+  //
+  cout << endl << "Part: 13.8" << endl;
+
+  Storage<int> myInt(5);
+  myInt.print();
+
+  int x = 7;
+  Storage<int*> myIntPtr(&x);
+  x = 2;
+  myIntPtr.print();
+
+  char *name = new char[40];
+  strcpy(name, "Mateusz");
+  Storage<char*> myName(name);
+
+  delete[] name;
+
+  myName.print();
 
   return 0;
 }
