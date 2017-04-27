@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <cstring>
 
 using namespace std;
 
@@ -95,6 +96,39 @@ int main() {
     huhString += 'a' + rand() % 26;
 
   cout << huhString;
+
+  //
+  // Part 17.4
+  //
+  cout << "Part 17.4" << endl;
+
+  string anotherString("abcdefg");
+  cout << anotherString[anotherString.length()] << endl;
+  cout << anotherString[5] << endl;
+  anotherString[5] = 'X';
+  cout << anotherString << endl;
+
+  string anotherString2("abcdefg");
+  //cout << anotherString2.at(anotherString2.length()) << endl;
+  cout << anotherString2.at(5) << endl;
+  anotherString2.at(5) = 'X';
+  cout << anotherString2 << endl;
+
+  string c_string("abcdefg");
+  cout << strlen(c_string.c_str()) << endl;
+  const char *szString = "abcdefg";
+
+  if (memcmp(c_string.data(), szString, c_string.length()) == 0)
+    cout << "Strings are equal" << endl;
+  else
+    cout << "Strings are not equal" << endl;
+
+  string text("sphinx of black quartz, judge my vow");
+  char some_buf[20];
+  int someLength = text.copy(some_buf, 5, 10);
+  some_buf[someLength] = '\0';
+
+  cout << some_buf << endl;
 
   return 0;
 }
