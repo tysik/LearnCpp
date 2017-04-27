@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 #include "cents.hpp"
 #include "array.hpp"
@@ -24,6 +25,21 @@ T t_average(T* array, int length) {
   sum /= length;
 
   return sum;
+}
+
+//
+// 13.7
+//
+template <typename T, int size>
+void print(StaticArray<T, size>& array) {
+  for (int idx = 0; idx < size; ++idx)
+    cout << array[idx] << " ";
+}
+
+template <int size>
+void print(StaticArray<char, size>& array) {
+  for (int idx = 0; idx < size; ++idx)
+    cout << array[idx];
 }
 
 int main() {
@@ -145,6 +161,24 @@ int main() {
     cout << (boolStorage.get(idx) ? "true" : "false") << endl;
 
   cout << "int storage: " << sizeof(intStorage) << ", bool storage: " << sizeof(boolStorage) << endl;
+
+  //
+  // 13.7
+  //
+  cout << endl << "Part: 13.7" << endl;
+
+  print(intStaticArray);
+  cout << endl;
+
+  StaticArray<char, 14> charArray14;
+  strcpy(charArray14.getArray(), "Hello, World!");
+  print(charArray14);
+  cout << endl;
+
+  StaticArray<char, 12> charArray12;
+  strcpy(charArray12.getArray(), "Hello, mom!");
+  print(charArray12);
+  cout << endl;
 
   return 0;
 }
