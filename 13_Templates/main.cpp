@@ -1,11 +1,13 @@
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 
 #include "cents.hpp"
 #include "array.hpp"
 #include "static_array.hpp"
 #include "storage.hpp"
 #include "storage8.hpp"
+#include "quiz.hpp"
 
 using namespace std;
 
@@ -200,6 +202,27 @@ int main() {
   delete[] name;
 
   myName.print();
+
+  //
+  // QUIZ
+  //
+  cout << endl << "QUIZ" << endl;
+
+  std::cout << std::fixed << std::setprecision(3);
+  Pair1<int> p1(5, 8);
+  std::cout << "Pair: " << p1.first() << ' ' << p1.second() << '\n';
+
+  const Pair1<double> p2(2.3, 4.5);
+  std::cout << "Pair: " << p2.first() << ' ' << p2.second() << '\n';
+
+  Pair<int, double> np1(5, 6.7);
+  std::cout << "Pair: " << np1.first() << ' ' << np1.second() << '\n';
+
+  const Pair<double, int> np2(2.3, 4);
+  std::cout << "Pair: " << np2.first() << ' ' << np2.second() << '\n';
+
+  StringValuePair<int> svp("Hello", 5);
+  std::cout << "Pair: " << svp.first() << ' ' << svp.second() << '\n';
 
   return 0;
 }
