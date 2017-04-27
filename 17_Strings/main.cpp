@@ -130,5 +130,46 @@ int main() {
 
   cout << some_buf << endl;
 
+  //
+  // Part 17.5
+  //
+  cout << "Part 17.5" << endl;
+
+  string string_one;
+  string_one = string("One");
+  cout << string_one << endl;
+
+  const string string_two("Two");
+  cout << string_two << endl;
+
+  string_one.assign(string_two);
+  cout << string_one << endl;
+
+  string_one = 'a';
+  cout << string_one << endl;
+
+  string chained;
+  string_one = chained = "six";
+  cout << string_one << " " << chained << endl;
+
+  const string mhm("abcdefg");
+  string dest;
+
+  dest.assign(mhm, 2, 3);
+  cout << dest << endl;
+  dest.assign("abcdefg", 4);
+  cout << dest << endl;
+  dest.assign(5, 'Q');
+  cout << dest << endl;
+
+  string blue("blue");
+  string red("red");
+
+  cout << "normal: " << blue << " " << red << endl;
+  swap(blue, red);
+  cout << "swapped: " << blue << " " << red << endl;
+  blue.swap(red);
+  cout << "normal: " << blue << " " << red << endl;
+
   return 0;
 }
