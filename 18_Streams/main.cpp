@@ -53,9 +53,9 @@ int main() {
 
 //  cout << cin.gcount() << " characters read" << endl;
 
-  string str;
-  getline(cin, str);
-  cout << str << endl;
+//  string str;
+//  getline(cin, str);
+//  cout << str << endl;
 
   return 0;
 }
