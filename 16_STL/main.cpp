@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <deque>
@@ -88,6 +89,43 @@ int main() {
     cout << mit->first << " = " << mit->second << endl;
     ++mit;
   }
+
+  //
+  // Part 16.4
+  //
+  cout << "Part: 16.4" << endl;
+
+  list<int>::const_iterator ait;
+  cout << "Min: " << *(ait = min_element(li.begin(), li.end())) << endl;
+  cout << "Max: " << *(ait = max_element(li.begin(), li.end())) << endl;
+
+  ait = find(li.begin(), li.end(), 30);
+  li.insert(ait, 25);
+
+  for (lit = li.begin(); lit != li.end(); ++lit)
+    cout << *lit << " ";
+  cout << endl;
+
+  vector<int> v;
+
+  v.push_back(7);
+  v.push_back(-3);
+  v.push_back(6);
+  v.push_back(2);
+  v.push_back(-5);
+  v.push_back(0);
+  v.push_back(4);
+
+  sort(v.begin(), v.end());
+  vector<int>::const_iterator vit;
+  for (vit = v.begin(); vit != v.end(); ++vit)
+    cout << *vit << " ";
+  cout << endl;
+
+  reverse(v.begin(), v.end());
+  for (vit = v.begin(); vit != v.end(); ++vit)
+    cout << *vit << " ";
+  cout << endl;
 
   return 0;
 }
