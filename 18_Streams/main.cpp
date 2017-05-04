@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -144,6 +145,51 @@ int main() {
   // Part 18.4
   //
   cout << "Part: 18.4" << endl;
+
+  stringstream os;
+  os << "en garde!" << endl;
+  cout << os.str();
+
+  os.str("A, ha!\n");
+  cout << os.str();
+
+  os << "Omg! Huhuhuu!" << endl;
+  string someString1, someString2;
+  os >> someString1;
+  os >> someString2;
+  cout << someString1 << " - " << someString2 << endl;
+
+  stringstream os2;
+  int nvalue = 12345;
+  double dvalue = 56.78;
+  os2 << nvalue << " " << dvalue;
+
+  string st1, st2;
+  os2 >> st1 >> st2;
+  cout << st1 << " " << st2 << endl;
+
+  stringstream os3;
+  os3 << "12345 67.89";
+  int nval;
+  double dval;
+  os3 >> nval >> dval;
+
+  cout << nval << " " << dval << endl;
+
+  os.str(""); // Erase buffer
+  os2.str(string());
+  os3.str("");
+  os3.clear();
+
+  cout << os.str();
+  cout << os2.str();
+  cout << os3.str();
+
+  //
+  // Part 18.5
+  //
+  cout << "Part: 18.5" << endl;
+
 
   return 0;
 }
