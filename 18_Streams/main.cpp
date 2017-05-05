@@ -342,15 +342,68 @@ int main() {
     cerr << "Could not open file" << endl;
   }
 
+  f.seekg(0, ios::beg);
   string data;
   getline(f, data);
+  data[data.length() - 1] = '3';
+
+  f.seekp(0, ios::end);
   f << data << endl;
   f.close();
 
   fstream f2;
-  f2.open("Sample.dat", ios::out | ios::app);
+  f2.open("Sample.dat", ios::out | ios::in | ios::app);
   f2 << "This is another line" << endl;
+
+  string temp;
+
+  f2.seekg(5);
+  getline(f2, temp);
+  cout << temp << endl;
+
+  f2.seekg(8, ios::cur);
+  getline(f2, temp);
+  cout << temp << endl;
+
+  f2.seekg(-15, ios::end);
+  getline(f2, temp);
+  cout << temp << endl;
+
+  f2.seekg(0, ios::end);
+  cout << f2.tellg() << endl;
+
   f2.close();
+
+  fstream iofile("Sample.dat", ios::in | ios::out);
+
+  if (!iofile) {
+    cerr << "Error" << endl;
+    exit(1);
+  }
+
+  char c;
+
+  while (iofile.get(c)) {
+    switch (c) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+    case 'A':
+    case 'E':
+    case 'I':
+    case 'O':
+    case 'U':
+      iofile.seekg(-1, ios::cur);
+      iofile << '#';
+      iofile.seekg(iofile.tellg(), ios::beg);
+      break;
+    }
+  }
+
+  if (iofile.is_open())
+    iofile.close();
 
   return 0;
 }
