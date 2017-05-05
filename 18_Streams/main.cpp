@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <cctype>
+#include <fstream>
 
 using namespace std;
 
@@ -40,28 +41,28 @@ bool InputMatches(string strUserInput, string strTemplate) {
 }
 
 int main() {
-  //
-  // Part 18.1
-  //
-  cout << "Part: 18.1" << endl;
+//  //
+//  // Part 18.1
+//  //
+//  cout << "Part: 18.1" << endl;
 
-  cout << "Enter your age: " << endl;
+//  cout << "Enter your age: " << endl;
 
-  int age;
-  //cin >> age;
-  age = 2;
+//  int age;
+//  //cin >> age;
+//  age = 2;
 
-  if (age <= 0) {
-    cerr << "Oops!" << endl;
-    exit(1);
-  }
+//  if (age <= 0) {
+//    cerr << "Oops!" << endl;
+//    exit(1);
+//  }
 
-  cout << "You entered " << age << " years" << endl;
+//  cout << "You entered " << age << " years" << endl;
 
-  //
-  // Part 18.2
-  //
-  cout << "Part: 18.2" << endl;
+//  //
+//  // Part 18.2
+//  //
+//  cout << "Part: 18.2" << endl;
 
 //  char buf[10]{'a'};
 //  cin >> setw(10) >> buf;
@@ -91,10 +92,10 @@ int main() {
 //  getline(cin, str);
 //  cout << str << endl;
 
-  //
-  // Part 18.3
-  //
-  cout << "Part: 18.3" << endl;
+//  //
+//  // Part 18.3
+//  //
+//  cout << "Part: 18.3" << endl;
 
 //  cout.setf(ios::showpos);
 //  cout << 27 << endl;
@@ -174,54 +175,54 @@ int main() {
 //  cout << setw(10) << right << -12345 << endl;
 //  cout << setw(10) << internal << -12345 << endl;
 
-  //
-  // Part 18.4
-  //
-  cout << "Part: 18.4" << endl;
+//  //
+//  // Part 18.4
+//  //
+//  cout << "Part: 18.4" << endl;
 
-  stringstream os;
-  os << "en garde!" << endl;
-  cout << os.str();
+//  stringstream os;
+//  os << "en garde!" << endl;
+//  cout << os.str();
 
-  os.str("A, ha!\n");
-  cout << os.str();
+//  os.str("A, ha!\n");
+//  cout << os.str();
 
-  os << "Omg! Huhuhuu!" << endl;
-  string someString1, someString2;
-  os >> someString1;
-  os >> someString2;
-  cout << someString1 << " - " << someString2 << endl;
+//  os << "Omg! Huhuhuu!" << endl;
+//  string someString1, someString2;
+//  os >> someString1;
+//  os >> someString2;
+//  cout << someString1 << " - " << someString2 << endl;
 
-  stringstream os2;
-  int nvalue = 12345;
-  double dvalue = 56.78;
-  os2 << nvalue << " " << dvalue;
+//  stringstream os2;
+//  int nvalue = 12345;
+//  double dvalue = 56.78;
+//  os2 << nvalue << " " << dvalue;
 
-  string st1, st2;
-  os2 >> st1 >> st2;
-  cout << st1 << " " << st2 << endl;
+//  string st1, st2;
+//  os2 >> st1 >> st2;
+//  cout << st1 << " " << st2 << endl;
 
-  stringstream os3;
-  os3 << "12345 67.89";
-  int nval;
-  double dval;
-  os3 >> nval >> dval;
+//  stringstream os3;
+//  os3 << "12345 67.89";
+//  int nval;
+//  double dval;
+//  os3 >> nval >> dval;
 
-  cout << nval << " " << dval << endl;
+//  cout << nval << " " << dval << endl;
 
-  os.str(""); // Erase buffer
-  os2.str(string());
-  os3.str("");
-  os3.clear();
+//  os.str(""); // Erase buffer
+//  os2.str(string());
+//  os3.str("");
+//  os3.clear();
 
-  cout << os.str();
-  cout << os2.str();
-  cout << os3.str();
+//  cout << os.str();
+//  cout << os2.str();
+//  cout << os3.str();
 
-  //
-  // Part 18.5
-  //
-  cout << "Part: 18.5" << endl;
+//  //
+//  // Part 18.5
+//  //
+//  cout << "Part: 18.5" << endl;
 
 //  string strName;
 //  string strValue;
@@ -253,7 +254,7 @@ int main() {
 //  cout << "Correct name: " << strName << endl;
 //  cout << "Correct number: " << strValue << endl;
 
-  int nAge;
+//  int nAge;
 
 //  while (true) {
 //    cout << "Enter your age: ";
@@ -275,33 +276,81 @@ int main() {
 //    break;
 //  }
 
-  while (true) {
-    cout << "Enter your age: ";
-    string strAge;
-    cin >> strAge;
+//  while (true) {
+//    cout << "Enter your age: ";
+//    string strAge;
+//    cin >> strAge;
 
-    bool bValid = true;
-    for (uint idx = 0; idx < strAge.length(); ++idx) {
-      if (!isdigit(strAge[idx])) {
-        bValid = false;
-        break;
-      }
-    }
+//    bool bValid = true;
+//    for (uint idx = 0; idx < strAge.length(); ++idx) {
+//      if (!isdigit(strAge[idx])) {
+//        bValid = false;
+//        break;
+//      }
+//    }
 
-    if (!bValid)
-      continue;
+//    if (!bValid)
+//      continue;
 
-    stringstream strStream;
-    strStream << strAge;
-    strStream >> nAge;
+//    stringstream strStream;
+//    strStream << strAge;
+//    strStream >> nAge;
 
-    if (nAge <= 0)
-      continue;
+//    if (nAge <= 0)
+//      continue;
 
-    break;
+//    break;
+//  }
+
+//  cout << "Correct age: " << nAge << endl;
+
+  //
+  // Part 18.6
+  //
+  cout << "Part: 18.6" << endl;
+
+  ofstream outf("Sample.dat");
+
+  if (!outf) {
+    cerr << "Could not open file Sample.dat for writing" << endl;
+    exit(1);
   }
 
-  cout << "Correct age: " << nAge << endl;
+  outf << "This is line 1" << endl;
+  outf << "This is line 2" << endl;
+
+  outf.close();
+
+  ifstream inf("Sample.dat");
+  if (!inf) {
+    cerr << "Could not open file Sample.dat for reading" << endl;
+    exit(1);
+  }
+
+  while (inf) {
+    string input;
+    //inf >> input;
+    getline(inf, input);
+    cout << input << endl;
+  }
+
+  inf.close();
+
+  fstream f("Sample.dat", ios::in | ios::out | ios::app);
+
+  if (!f) {
+    cerr << "Could not open file" << endl;
+  }
+
+  string data;
+  getline(f, data);
+  f << data << endl;
+  f.close();
+
+  fstream f2;
+  f2.open("Sample.dat", ios::out | ios::app);
+  f2 << "This is another line" << endl;
+  f2.close();
 
   return 0;
 }
