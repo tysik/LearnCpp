@@ -3,8 +3,41 @@
 #include <iomanip>
 #include <string>
 #include <sstream>
+#include <cctype>
 
 using namespace std;
+
+//
+// Part 18.5
+//
+bool InputMatches(string strUserInput, string strTemplate) {
+  if (strTemplate.length() != strUserInput.length())
+    return false;
+
+  for (uint idx = 0; idx < strTemplate.length(); ++idx) {
+    switch (strTemplate[idx]) {
+    case '#':
+      if(!isdigit(strUserInput[idx]))
+        return false;
+      break;
+    case '_':
+      if (!isspace(strUserInput[idx]))
+        return false;
+      break;
+    case '@':
+      if (!isalpha(strUserInput[idx]))
+        return false;
+      break;
+    case '?':
+      break;
+    default:
+      if (strUserInput[idx] != strTemplate[idx])
+        return false;
+    }
+  }
+
+  return true;
+}
 
 int main() {
   //
@@ -190,6 +223,85 @@ int main() {
   //
   cout << "Part: 18.5" << endl;
 
+//  string strName;
+//  string strValue;
+
+//  while (true) {
+//    cout << "Enter your name: ";
+//    getline(cin, strName);
+
+//    bool bRejected = false;
+//    for (unsigned int idx = 0; idx < strName.length() && !bRejected; ++idx) {
+//      if (isalpha(strName[idx]))
+//        continue;
+
+//      if (strName[idx] == ' ')
+//        continue;
+
+//      bRejected = true;
+//    }
+
+//    if (bRejected)
+//      continue;
+
+//    cout << "Enter a phone number (###) ###-####: ";
+//    getline(cin, strValue);
+//    if (InputMatches(strValue, "(###) ###-####"))
+//      break;
+//  }
+
+//  cout << "Correct name: " << strName << endl;
+//  cout << "Correct number: " << strValue << endl;
+
+  int nAge;
+
+//  while (true) {
+//    cout << "Enter your age: ";
+//    cin >> nAge;
+
+//    if (cin.fail()) {
+//      cin.clear();
+//      cin.ignore(1000, '\n');
+//      continue;
+//    }
+
+//    cin.ignore(1000, '\n');
+//    if (cin.gcount() > 1)
+//      continue;
+
+//    if (nAge <= 0)
+//      continue;
+
+//    break;
+//  }
+
+  while (true) {
+    cout << "Enter your age: ";
+    string strAge;
+    cin >> strAge;
+
+    bool bValid = true;
+    for (uint idx = 0; idx < strAge.length(); ++idx) {
+      if (!isdigit(strAge[idx])) {
+        bValid = false;
+        break;
+      }
+    }
+
+    if (!bValid)
+      continue;
+
+    stringstream strStream;
+    strStream << strAge;
+    strStream >> nAge;
+
+    if (nAge <= 0)
+      continue;
+
+    break;
+  }
+
+  cout << "Correct age: " << nAge << endl;
 
   return 0;
 }
