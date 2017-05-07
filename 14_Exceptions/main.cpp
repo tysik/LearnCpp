@@ -56,10 +56,10 @@ int main(int argc, char *argv[]) {
 
 //  cout << "Continuing on our merry way!" << endl;
 
-  //
-  // 14.3
-  //
-  cout << endl << "Part: 14.3" << endl;
+//  //
+//  // 14.3
+//  //
+//  cout << endl << "Part: 14.3" << endl;
 
 //  double d = -1.0;
 
@@ -71,16 +71,31 @@ int main(int argc, char *argv[]) {
 //    cerr << "Error: " << e << endl;
 //  }
 
-  cout << "Start main" << endl;
+//  cout << "Start main" << endl;
+
+//  try {
+//    first();
+//  }
+//  catch (int) {
+//    cerr << "main caught int exception\n";
+//  }
+
+//  cout << "End main\n";
+
+  //
+  // 14.4
+  //
+  cout << endl << "Part: 14.4" << endl;
 
   try {
-    first();
+    throw 5;
   }
-  catch (int) {
-    cerr << "main caught int exception\n";
+  catch (double) {
+    cerr << "Caught double" << endl;
   }
-
-  cout << "End main\n";
+  catch (...) {
+    cerr << "Caught something else" << endl;
+  }
 
   return 0;
 }
